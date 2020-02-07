@@ -47,10 +47,6 @@ public class Wheel : MonoBehaviour
         {
             //rb.AddTorque(h * steerPower);
             rb.rotation += h * steerPower;
-
-            // TODO
-            // Drifting sort of works, but the steering is not 'stiff' enough and so it swings to easily.
-            // Input.GetAxis is also all or nothing with a keyboard, how could a partial steer be simulated?
         }
 
         acceleration = transform.up * v * power;
