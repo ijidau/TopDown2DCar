@@ -7,25 +7,27 @@ public class Wheel : MonoBehaviour
     // 'torque' is just the wheel traction force, not rotational force
     [SerializeField]
     [Range(0f, 100f)]
-    float power;
+    float power = 1;
 
     [SerializeField]
-    bool steerable;
+    bool steerable = false;
 
     [SerializeField]
     [Range(0f, 10f)]
-    float steerPower;
+    float steerPower = 1;
 
     [SerializeField]
     [Range(0f, 1f)]
-    float grip;
+    float surfaceFriction = 1;
 
     [SerializeField]
-    [Range(0f, 50f)]
-    float maxFriction;
+    [Range(0f, 20f)]
+    float maxTyreFriction = 1;
 
-    Rigidbody2D rb;
-    TrailRenderer skidmarks;
+    private Rigidbody2D rb;
+    private TrailRenderer skidmarks;
+    private Vector2 acceleration, driftForce, frictionForce;
+    float h, v, driftPercentage;
 
     void Start()
     {
@@ -36,42 +38,36 @@ public class Wheel : MonoBehaviour
     void FixedUpdate()
     {
         // Inverted horizontal value so that it maps to clockwise (positive) and counter-clockwise (negative)
-        float h = -Input.GetAxis("Horizontal");
-        float v = Input.GetAxis("Vertical");
+        h = -Input.GetAxis("Horizontal");
+        Debug.DrawLine(new Vector2(0, 0), new Vector2(-h * 5, 0), Color.blue);
+        v = Input.GetAxis("Vertical");
 
         // Steering
         if (steerable)
         {
             //rb.AddTorque(h * steerPower);
             rb.rotation += h * steerPower;
+
+            // TODO
+            // Drifting sort of works, but the steering is not 'stiff' enough and so it swings to easily.
+            // Input.GetAxis is also all or nothing with a keyboard, how could a partial steer be simulated?
         }
 
-        Vector2 acceleration = transform.up * v * power;
+        acceleration = transform.up * v * power;
         rb.AddForce(acceleration);
 
-        // Calculate the percentage amount of sideways velocity compared to forwards velocity 
-        float driftPercentage = Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.left));
-        // Create a vector that represents this drifting force
-        Vector2 driftForce = Vector2.left * driftPercentage;
-        // Draw a line (exaggerated) to demonstrate the drifting force
-        Debug.DrawLine(rb.position, rb.GetRelativePoint(driftForce * 10), Color.red);
+        // Calculate the sideways drift velocity
+        driftForce = new Vector2(transform.InverseTransformVector(rb.velocity).x, 0);
+        Debug.DrawLine(rb.position, rb.GetRelativePoint(driftForce * 5), Color.red);
 
-        // Calculate an opposing friction force to counteract drift
-        Vector2 frictionForce = Vector2.ClampMagnitude(driftForce * -1 * grip, maxFriction);
-        // Draw a line (exaggerated) to demonstrate the friction force
-        Debug.DrawLine(rb.position, rb.GetRelativePoint(frictionForce * 10), Color.green);
+        // Calculate an opposing friction force to counteract drift, limited by a maximum type grip
+        frictionForce = Vector2.ClampMagnitude(driftForce * -1 * surfaceFriction, maxTyreFriction);
+        Debug.DrawLine(rb.position, rb.GetRelativePoint(frictionForce * 5), Color.green);
 
         // Apply the friction force to counteract drift, i.e. so wheels roll forwards/backwards but not sideways
         rb.AddForce(rb.GetRelativeVector(frictionForce), ForceMode2D.Impulse);
 
         // Draw skidmarks when drift force exceeds maximum friction
-        if(driftForce.sqrMagnitude > frictionForce.sqrMagnitude)
-        {
-            skidmarks.emitting = true;
-        }
-        else
-        {
-            skidmarks.emitting = false;
-        }
+        skidmarks.emitting = driftForce.sqrMagnitude > frictionForce.sqrMagnitude ? true : false;
     }
 }
