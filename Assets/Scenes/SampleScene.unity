@@ -319,6 +319,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1398934185 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5374423054197256640, guid: b51114d372149472fa642e7f5264b3cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5374423053944450842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!256 &1398934193
+FrictionJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1398934185}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1592621322}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: -1.28, y: 2.56}
+  m_MaxForce: 1000000
+  m_MaxTorque: 0.15
+--- !u!50 &1592621322 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5374423053101655205, guid: b51114d372149472fa642e7f5264b3cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5374423053944450842}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1665535278
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +477,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -102.77801}
+--- !u!1 &1721196130 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4944938145634088327, guid: b51114d372149472fa642e7f5264b3cb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5374423053944450842}
+  m_PrefabAsset: {fileID: 0}
+--- !u!256 &1721196138
+FrictionJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721196130}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 1592621322}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 1.28, y: 2.56}
+  m_MaxForce: 1000000
+  m_MaxTorque: 0.15
 --- !u!1 &1767247334
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +797,7 @@ PrefabInstance:
     - target: {fileID: 4944938145634088326, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: maxTyreFriction
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -763,7 +817,7 @@ PrefabInstance:
     - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: maxTyreFriction
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4944938146202983620, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -788,7 +842,7 @@ PrefabInstance:
     - target: {fileID: 4944938146268813419, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: maxTyreFriction
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4944938146268813420, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -895,6 +949,11 @@ PrefabInstance:
       propertyPath: m_Motor.m_MotorSpeed
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5374423053315434196, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5374423054197256641, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: grip
@@ -913,7 +972,7 @@ PrefabInstance:
     - target: {fileID: 5374423054197256641, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: maxTyreFriction
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -949,6 +1008,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Motor.m_MotorSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256698, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51114d372149472fa642e7f5264b3cb, type: 3}
