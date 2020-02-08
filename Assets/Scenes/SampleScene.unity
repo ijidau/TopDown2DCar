@@ -215,7 +215,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338294297}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -471,7 +471,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1665535278}
   m_LocalRotation: {x: -0, y: -0, z: -0.7813997, w: 0.62403095}
-  m_LocalPosition: {x: -3.01, y: -4.3, z: -0.10748669}
+  m_LocalPosition: {x: -10.5, y: -13.7, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -559,7 +559,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 4
+  m_Mass: 100
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 1
@@ -622,13 +622,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767247334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.92, y: 3.31, z: -0.10748669}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.046670586, w: 0.99891037}
+  m_LocalPosition: {x: -16.5, y: 11.8, z: 0}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 5.35}
 --- !u!1 &1876206263
 GameObject:
   m_ObjectHideFlags: 0
@@ -687,7 +687,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 4
+  m_Mass: 25
   m_LinearDrag: 1
   m_AngularDrag: 1
   m_GravityScale: 1
@@ -751,8 +751,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876206263}
   m_LocalRotation: {x: -0, y: -0, z: -0.32448077, w: 0.94589233}
-  m_LocalPosition: {x: 6.06, y: 4.53, z: -0.10748669}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalPosition: {x: 18.9, y: -0.5, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -764,10 +764,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2454174014786346197, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454174014786346197, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: centerOfMass.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2454174014786346197, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: centerOfMass.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4944938145634088321, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4944938145634088321, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -777,7 +792,17 @@ PrefabInstance:
     - target: {fileID: 4944938145634088321, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_AngularDrag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938145634088321, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938145634088321, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4944938145634088326, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -799,6 +824,21 @@ PrefabInstance:
       propertyPath: maxTyreFriction
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4944938145634088326, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: power
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938145634088326, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: steerable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938145634088326, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: skidmarkThreshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: grip
@@ -817,12 +857,37 @@ PrefabInstance:
     - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: maxTyreFriction
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: power
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146202983619, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: skidmarkThreshold
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4944938146202983620, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146202983620, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146202983620, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146202983620, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4944938146268813419, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -844,10 +909,35 @@ PrefabInstance:
       propertyPath: maxTyreFriction
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 4944938146268813419, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: power
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146268813419, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: skidmarkThreshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4944938146268813420, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1.5
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146268813420, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146268813420, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944938146268813420, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5374423053101655205, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -974,10 +1064,25 @@ PrefabInstance:
       propertyPath: maxTyreFriction
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256641, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: power
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256641, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: steerable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256641, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: skidmarkThreshold
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_GravityScale
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
@@ -987,7 +1092,17 @@ PrefabInstance:
     - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}
       propertyPath: m_AngularDrag
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_Interpolate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5374423054197256646, guid: b51114d372149472fa642e7f5264b3cb,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5374423054197256698, guid: b51114d372149472fa642e7f5264b3cb,
         type: 3}

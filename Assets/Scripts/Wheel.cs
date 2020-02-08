@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class Wheel : MonoBehaviour
 {
-    // 'torque' is just the wheel traction force, not rotational force
     [SerializeField]
-    [Range(0f, 100f)]
+    [Range(0f, 500f)]
     float power = 1;
 
     [SerializeField]
@@ -23,6 +22,10 @@ public class Wheel : MonoBehaviour
     [SerializeField]
     [Range(0f, 20f)]
     float maxTyreFriction = 1;
+
+    [SerializeField]
+    [Range(1f, 10f)]
+    float skidmarkThreshold = 1;
 
     private Rigidbody2D rb;
     private TrailRenderer skidmarks;
@@ -45,7 +48,6 @@ public class Wheel : MonoBehaviour
         // Steering
         if (steerable)
         {
-            //rb.AddTorque(h * steerPower);
             rb.rotation += h * steerPower;
         }
 
@@ -60,10 +62,13 @@ public class Wheel : MonoBehaviour
         frictionForce = Vector2.ClampMagnitude(driftForce * -1 * surfaceFriction, maxTyreFriction);
         Debug.DrawLine(rb.position, rb.GetRelativePoint(frictionForce * 5), Color.green);
 
-        // Apply the friction force to counteract drift, i.e. so wheels roll forwards/backwards but not sideways
+        // TODO
+        // Improve the friction response to reduce drift at low speeds and stabilise drift at higher speeds
+
+        // Apply the friction force to counteract drift, i.e. so wheels 'roll' forwards/backwards but not sideways
         rb.AddForce(rb.GetRelativeVector(frictionForce), ForceMode2D.Impulse);
 
         // Draw skidmarks when drift force exceeds maximum friction
-        skidmarks.emitting = driftForce.sqrMagnitude > frictionForce.sqrMagnitude ? true : false;
+        skidmarks.emitting = driftForce.sqrMagnitude > frictionForce.sqrMagnitude * skidmarkThreshold ? true : false;
     }
 }
