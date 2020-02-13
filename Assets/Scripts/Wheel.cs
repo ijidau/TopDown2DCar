@@ -19,7 +19,7 @@ public class Wheel : MonoBehaviour
     private Rigidbody2D rb;
     private TrailRenderer skidmarks;
     private Vector2 acceleration, driftForce, frictionForce;
-    private float h, v, driftPercentage;
+    private float h, v;
 
     void Start()
     {
